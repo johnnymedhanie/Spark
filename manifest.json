@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+
+	"name": "Moment",
+	"short_name": "Moment",
+	"description": "This extension allows the user to access personal Moment from the app Moment",
+	"version": "1.0",
+
+	"icons": {
+    "48": "icons/border-48.png",
+    "96": "icons/border-96.png"
+  },
+
+	"content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js https://cdn.jsdelivr.net/npm/vue https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/ngAlertify.js; object-src 'self'",
+
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+
+	"offline_enabled": true,
+
+	"browser_action": {
+		"default_title": "Moments"
+	},
+
+	"permissions": [
+		"storage",
+		"alarms",
+		"notifications",
+		"identity"
+	],
+
+	"oauth2": {
+		"client_id": "194887991985-cgpni980k28nhr5buonbu5tsf5028bn0.apps.googleusercontent.com",
+		"scopes": [
+			"https://www.googleapis.com/auth/userinfo.email",
+			"https://www.googleapis.com/auth/userinfo.profile"
+		]
+	},
+
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqZm1wZg+NVEvjjayiO0OvMKZRf+CQdYVvqBwTC5h0MEb/XXfccg7GQmIO7aJ3PWYrZi3mEOatpjltPvFvQJy0IBOZehuLJhcbqR7pIGZFoT8C95orr6u8MApSZ1rVfHe2Oj1oom0XzrfRXc13bYqBpxgbE+xn8yjJeqDktGMgk5UIDnbhX0CYmuCsE5oxbEVKmJGZq9KxPRxI144XfPgtJ9ylP30J9LiNIeyKGwD2xiO4bMbmfhToPPyHpYdhjeyxY+p46ujlkkS22LGSYdUl4iTPPTxgC+wNci5DRzsgWvZ9eOW68uORGCh+ACLCinb+lBlHhHhRmjKlur8KnDEHwIDAQAB"
+
+}

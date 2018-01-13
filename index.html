@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- angular module -->
+  <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/ngAlertify.js"></script>
+</head>
+<body ng-app = "data">
+	<h1>Moment</h1>
+  <h4>By Emergence</h4>
+  <h2>Remember the Pursuit:</h2>
+	<p id="name">you're fucking retarded</p>
+
+	<button id="myButton">Notify me!</button>
+	<button id="signInButton">sign in motherfucker</button>
+
+  <div id="container" ng-controller = "dataController">
+  	<div id="input"></div>
+  	<form ng-Submit="post()">
+  		<input type="text" id="hiddenInput" ng-model="user_moment">
+  	</form>
+  </div>
+
+	<div id="momentList">
+		<div id="todolist">
+		  <h1>
+		    Todo List
+		    <span>Get things done, one item at a time.</span>
+		  </h1>
+
+		  <template v-if="todo.length">
+		    <transition-group name="todolist" tag="ul">
+		      <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
+		        <span class="label">{{item.label}}</span>
+		        <div class="actions">
+		          <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
+		            <i aria-hidden="true" class="material-icons">{{ item.done ? 'check_box' : 'check_box_outline_blank' }}</i>
+		          </button>
+		          <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
+		            <i aria-hidden="true" class="material-icons">delete</i>
+		          </button>
+		        </div>
+		      </li>
+		    </transition-group>
+		    <togglebutton
+		                  label="Move done items at the end?"
+		                  name="todosort"
+		                  v-on:clicked="clickontoogle" />
+		  </template>
+		  <p v-else class="emptylist">Your todo list is empty.</p>
+
+		  <form name="newform" v-on:submit.prevent="addItem">
+		    <label for="newitem">Add to the todo list</label>
+		    <input type="text" name="newitem" id="newitem" v-model="newitem">
+		    <button type="submit">Add item</button>
+		  </form>
+		</div>
+	</div>
+
+  <!--TODO: Basically just seeing if data outputs -->
+  <div ng-controller = "getDataController" id="poop">
+    <h4>Your Data </h4>
+    <div ng-repeat="moment in moments" id="poooop">
+      <p>{{moment}}</p>
+    </div>
+  </div>
+
+  <script src="js/firebaseFunc.js"></script>
+  <script src="js/main.js"></script>
+	<script src="js/alarms.js"></script>
+	<script src="js/momentList.js"></script>
+</body>
+</html>
