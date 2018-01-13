@@ -1,0 +1,405 @@
+/* { box-sizing:border-box; }
+
+body {
+    background-color: #818181
+}
+
+/* basic stylings
+.container 		{
+  font-family:'Roboto';
+  width:600px;
+  margin:30px auto 0;
+  display:block;
+  background:#FFF;
+  padding:10px 50px 50px;
+}
+h2 		 {
+  text-align:center;
+  margin-bottom:50px;
+}
+
+/* form starting stylings
+.group 			  {
+  position:relative;
+  margin-bottom:45px;
+}
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL =======================================
+label 				 {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#616161;
+}
+
+/* BOTTOM BARS =================================
+.bar 	{ /*position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#616161;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ==================================
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================
+@-webkit-keyframes inputHighlighter {
+	from { background:#616161; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#616161; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#616161; }
+  to 	{ width:0; background:transparent; }
+}*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+
+    body {
+        background-color: #000000;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 40px;
+        color: #ffffff;
+    }
+
+    #hiddenInput {
+        font-size: 40px;
+        font-family: 'Roboto Condensed', sans-serif;
+        background-color: #808080;
+        position: absolute;
+        opacity: 0.4;
+        margin-top: -22px;
+        margin-left: -125px;
+        opacity: 0;
+        filter: alpha(opacity = 0);
+    }
+
+    #container {
+/*        position: absolute;*/
+        position: relative;
+        top: 80px;
+        left: 50%;
+    }
+
+    #input {
+        position: absolute;
+        margin-top: -20px;
+        margin-left: -120px;
+    }
+
+    .letterContainer {
+        display: inline;
+        white-space: nowrap;
+    }
+
+    .letterStatic {
+        display: inline;
+    }
+
+    .letterAnimTop {
+        display: inline;
+        position: absolute;
+        -webkit-animation: dropTop .1s ease;
+        -moz-animation: dropTop .1s ease;
+
+    }
+
+    .letterAnimBottom {
+        display: inline;
+        position: absolute;
+        -webkit-animation: dropBottom .1s ease;
+        -moz-animation: dropBottom .1s ease;
+    }
+
+    .blink {
+        position: static;
+        top: -5px;
+        -webkit-animation: blink 0.3s ease 0 infinite alternate;
+        -moz-animation: blink 0.3s ease 0 infinite alternate;
+    }
+
+    @-moz-keyframes blink {
+        from { opacity: 0 }
+        to { opactiy: 1 }
+    }
+
+    @-webkit-keyframes blink {
+        from { opacity: 0 }
+        to { opactiy: 1 }
+    }
+
+    @-moz-keyframes dropTop {
+        from {
+            -moz-transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg);
+            transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg);
+        }
+
+        to {
+            -moz-transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg);
+            transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg);
+        }
+    }
+
+    @-moz-keyframes dropBottom {
+        from {
+            -moz-transform: translateY(20px) translateZ(20px) rotateX(-90deg);
+            transform: translateY(20px) translateZ(20px) rotateX(-90deg);
+        }
+
+        to {
+            -moz-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+        }
+    }
+
+    @-webkit-keyframes dropTop {
+        from { -webkit-transform: translateX(0) translateY(-20px) translateZ(20px) rotateX(90deg); }
+        to { -webkit-transform: translateX(0) translateY(0) translateZ(0) rotateX(0deg); }
+    }
+
+    @-webkit-keyframes dropBottom {
+        from { -webkit-transform: translateY(20px) translateZ(20px) rotateX(-90deg); }
+        to { -webkit-transform: rotateX(0deg); }
+    }
+
+#momentList * {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+/* html, body { */
+#momentList {
+  margin: 300px 0px 0px 0px;
+  padding: 50px;
+	background:#f7f1f1;
+	font-size:1.1rem;
+	font-family:'Quicksand', sans-serif;
+	height:100%;
+}
+@keyframes strikeitem {
+	to { width:calc(100% + 1rem); }
+}
+
+#todolist {
+	margin:4rem auto;
+	padding:2rem 3rem 3rem;
+	max-width:500px;
+	background:#FF6666;
+	color:#FFF;
+	box-shadow:-20px -20px 0px 0px rgba(100,100,100,.1);
+}
+#todolist h1 {
+    /*text-align:center;*/
+    font-weight:normal;
+    font-size:2.6rem;
+    letter-spacing:0.05em;
+    border-bottom:1px solid rgba(255,255,255,.3);
+}
+#todolist h1 span {
+	display:block;
+	font-size:0.8rem;
+	margin-bottom:0.7rem;
+	margin-left:3px;
+	margin-top:0.2rem;
+}
+
+#todolist .emptylist {
+	margin-top:2.6rem;
+	text-align:center;
+	letter-spacing:.05em;
+	font-style:italic;
+	opacity:0.8;
+
+}
+#todolist ul {
+	margin-top:2.6rem;
+	list-style:none;
+}
+#todolist .todolist-move {
+	transition: transform 1s;
+}
+#todolist li {
+	display:flex;
+	margin:0 -3rem 4px;
+	padding:1.1rem 3rem;
+	justify-content:space-between;
+	align-items:center;
+	background:rgba(255,255,255,0.1);
+}
+
+#todolist .actions {
+	flex-shrink:0;
+	padding-left:0.7em;
+}
+#todolist .label {
+	position:relative;
+	transition:opacity .2s linear;
+}
+#todolist .done .label {
+	opacity:.6;
+}
+#todolist .done .label:before {
+	content:'';
+	position:absolute;
+	top:50%;
+	left:-.5rem;
+	display:block;
+	width:0%;
+	height:1px;
+	background:#FFF;
+	animation:strikeitem .3s ease-out 0s forwards;
+}
+#todolist .btn-picto {
+	border:none;
+	background:none;
+	-webkit-appearance:none;
+	cursor:pointer;
+	color:#FFF;
+}
+
+
+/* FORM */
+form {
+	margin-top:3rem;
+	display:flex;
+	flex-wrap:wrap;
+}
+form label {
+	min-width:100%;
+	margin-bottom:.5rem;
+	font-size:1.3rem;
+}
+form input {
+	flex-grow:1;
+	border:none;
+	background:#f7f1f1;
+	padding:0 1.5em;
+	font-size:initial;
+}
+form button {
+	padding:0 1.3rem;
+	border:none;
+	background:#FF6666;
+	color:white;
+	text-transform:uppercase;
+	font-weight:bold;
+	border:1px solid rgba(255,255,255,.3);
+	margin-left:5px;
+	cursor:pointer;
+	transition:background .2s ease-out;
+}
+form button:hover {
+	background:#FF5E5E;
+}
+form input,
+form button {
+	font-family:'Quicksand', sans-serif;
+	height:3rem;
+}
+
+
+/* TOOGLE COMPONENT */
+.togglebutton-wrapper {
+	margin-top:1em;
+}
+.togglebutton-wrapper label {
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.togglebutton-wrapper input {
+	position:absolute;
+    left:-9999px;
+}
+.togglebutton-wrapper .togglebutton-label {
+	font-size:.8rem;
+	letter-spacing:.1em
+}
+.togglebutton-wrapper .tooglebutton-box {
+	position:relative;
+	display:block;
+	margin-left:0.6em;
+	width:38px;
+	height:22px;
+	background:white;
+	/*border:1px solid black;*/
+	border-radius:999px;
+	cursor:pointer;
+}
+.togglebutton-wrapper .tooglebutton-box:before {
+	content:'';
+	position:absolute;
+	top:2px; left:2px;
+	display:block;
+	width:18px; height:18px;
+	/*border:1px solid #FF6666;*/
+	border-radius:50%;
+	background:#FF6666;
+	opacity:0.7;
+	transition:	all .2s ease-in-out;
+}
+.togglebutton-wrapper.togglebutton-focus .tooglebutton-box {
+	box-shadow:0px 0px 0px 3px rgba(0,0,0,0.1);
+}
+.togglebutton-wrapper.togglebutton-checked .tooglebutton-box:before {
+	left:calc(100% - 4px - 16px);
+	opacity:1;
+}
