@@ -1,6 +1,7 @@
 
 body {
    background-image: url(/assets/freetayk.jpg);
+    height: 100%;
 }
 
 /*
@@ -406,4 +407,135 @@ form button {
 
 .bbc {
     background-color: aquamarine;
+}
+
+/*
+  menu icon css3
+*/
+
+.menu-icon {
+  position: relative;
+  top: 100px;
+  display: block;
+  width: 4em;
+  height: 4em;
+  cursor: pointer;
+  /* to center */
+  margin: 0 auto;
+  float: none;
+  -webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+.menu-icon > span {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 0.5em;
+  margin-top: -0.5em;
+  background-color: #e74c3c;
+  border-radius: 3px;
+}
+
+.menu-icon > span:before,
+.menu-icon > span:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e74c3c;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s;
+	        transition: all 0.3s;
+}
+
+.menu-icon > span:before {
+  -webkit-transform: translateY(-1em);
+	        transform: translateY(-1em);
+}
+
+.menu-icon > span:after {
+  -webkit-transform: translateY(1em);
+	        transform: translateY(1em);
+}
+
+/* OPENED */
+
+.menu-icon.open {
+  -webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+
+.menu-icon.open > span:before {
+  -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+.menu-icon.open > span:after {
+  -webkit-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+@import "bourbon";
+* {
+  box-sizing: border-box;
+}
+body {
+  background: black;
+}
+span {
+  margin: 0;
+  padding: 0;
+}
+.end-left {
+  margin-left: -235px;
+}
+.end-right {
+  margin-right: -117.5px;
+}
+.outline {
+  position: absolute;
+  top: 20px;
+}
+.outline {
+  color: black;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: orange;
+  font-size: 64px;
+  font-family: 'Arvo', serif;
+}
+.orbs {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  display: block;
+  font-size: 128px;
+}
+.orbs span {
+  color: red;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  text-shadow: 0 0 20px orange, 1px 1px 20px orange, 2px 2px 20px orange, -1px -1px 20px orange, -2px -2px 20px orange;
+  position: absolute;
+  left: 50%;
+}
+.orbs span:first-child {
+  margin-left: -210px;
+}
+.orbs span:not(:first-child) {
+  margin-left: -35px;
+}
+.glow {
+  opacity: 0;
+  font-family: 'Arvo', serif;
+  font-weight: 300;
+  color: orange;
+  margin-left: -222.5px;
+  font-size: 105px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
 }
