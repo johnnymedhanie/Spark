@@ -1,18 +1,18 @@
-/* { box-sizing:border-box; }
 
 body {
-    background-color: #818181
+   background-image: url(/assets/freetayk.jpg);
 }
 
-/* basic stylings
+/*
 .container 		{
   font-family:'Roboto';
-  width:600px;
+  width: auto;
   margin:30px auto 0;
   display:block;
-  background:#FFF;
+  background:#37474F;
   padding:10px 50px 50px;
 }
+*/
 h2 		 {
   text-align:center;
   margin-bottom:50px;
@@ -109,7 +109,7 @@ input:focus ~ .highlight {
 @keyframes inputHighlighter {
 	from { background:#616161; }
   to 	{ width:0; background:transparent; }
-}*/
+}
 
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
 
@@ -133,7 +133,7 @@ input:focus ~ .highlight {
     }
 
     #container {
-/*        position: absolute;*/
+/*        position: absolute;
         position: relative;
         top: 80px;
         left: 50%;
@@ -402,4 +402,8 @@ form button {
 .togglebutton-wrapper.togglebutton-checked .tooglebutton-box:before {
 	left:calc(100% - 4px - 16px);
 	opacity:1;
+}
+
+.bbc {
+    background-color: aquamarine;
 }
